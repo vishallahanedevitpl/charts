@@ -1,5 +1,6 @@
 import React from "react";
 import AdminLayout from "../layout/admin";
+import MultiLevelPieChart from "./charts/MultiLevelPieChart";
 
 const DashboardPage = () => {
   return (
@@ -7,7 +8,10 @@ const DashboardPage = () => {
       <section className="section dashboard">
         <div className="card">
           <div className="card-body pt-3">
-            <div className="row">charts will go here</div>
+            <div className="row center">
+              {/* charts will go here */}
+              <MultiLevelPieChart />
+            </div>
           </div>
         </div>
       </section>
