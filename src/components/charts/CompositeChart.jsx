@@ -7,54 +7,56 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { salesData } from "../../api/salesData";
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
-const chartConfigs = {
-  type: "mscombi2d",
-  width: "100%",
-  height: 400,
-  dataFormat: "json",
-  dataSource: {
-    chart: {
-      caption: "Sales Analysis",
-      subcaption: "ACME Inc.",
-      xaxisname: "Product",
-      yaxisname: "Amount (In USD)",
-      numberprefix: "$",
-      theme: "fusion",
-      showxaxisline: "0",
-      showyaxisline: "0",
-      plotTooltext: "$label, $$valueK",
-    },
-    categories: [
-      {
-        category: salesData.map((s) => {
-          return { label: s.product };
-        }),
-      },
-    ],
-    dataset: [
-      {
-        seriesname: "Actual Sales",
-        data: salesData.map((s) => {
-          return { value: s.sales };
-        }),
-      },
-      {
-        seriesname: "Expected Sales",
-        renderas: "line",
-        data: salesData.map((s) => {
-          return { value: s.expectedSales };
-        }),
-      },
-    ],
-  },
-};
-
 const CompositeChart = () => {
-  // console.log(
-  //   salesData.map((s) => {
-  //     return { label: s.product };
-  //   })
-  // );
+  const formatedData = [];
+  salesData.data[0].category.forEach((ele) => {
+    ele.category.forEach((el) => {
+      formatedData.push(el);
+    });
+  });
+
+  const chartConfigs = {
+    type: "mscombi2d",
+    width: "100%",
+    height: 400,
+    dataFormat: "json",
+    dataSource: {
+      chart: {
+        caption: "Sales Analysis",
+        subcaption: "ACME Inc.",
+        xaxisname: "Product",
+        yaxisname: "Amount (In USD thousand)",
+        numberprefix: "$",
+        theme: "fusion",
+        showxaxisline: "0",
+        showyaxisline: "0",
+        plotTooltext: "$label, $$valueK, $percentValue",
+      },
+      categories: [
+        {
+          category: formatedData.map((s) => {
+            return { label: s.label };
+          }),
+        },
+      ],
+      dataset: [
+        {
+          seriesname: "Actual Sales",
+          data: formatedData.map((s) => {
+            return { value: s.value };
+          }),
+        },
+        {
+          seriesname: "Expected Sales",
+          renderas: "line",
+          data: formatedData.map((s) => {
+            return { value: s.expectedSales };
+          }),
+        },
+      ],
+    },
+  };
+
   return <ReactFC {...chartConfigs} />;
 };
 
