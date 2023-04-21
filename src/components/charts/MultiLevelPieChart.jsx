@@ -3,118 +3,10 @@ import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
 import multilevelpie from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-// import pieChartData from '../'
+import AdminLayout from "../../layout/admin";
+import MultiLevelPieTable from "../tableData/MultiLevelPieTable";
+import { salesData } from "../../api/salesData";
 ReactFC.fcRoot(FusionCharts, multilevelpie, FusionTheme);
-
-const multiData = {
-  data: [
-    {
-      label: "Sales by category",
-      color: "#ffffff",
-      value: "150",
-      category: [
-        {
-          label: "Food & {br}Beverages",
-          color: "#f8bd19",
-          value: "55.5",
-          category: [
-            {
-              label: "Breads",
-              color: "#f8bd19",
-              value: "11.1",
-            },
-            {
-              label: "Juice",
-              color: "#f8bd19",
-              value: "27.75",
-            },
-            {
-              label: "Noodles",
-              color: "#f8bd19",
-              value: "9.99",
-            },
-            {
-              label: "Seafood",
-              color: "#f8bd19",
-              value: "6.66",
-            },
-          ],
-        },
-        {
-          label: "Apparel &{br}Accessories",
-          color: "#e44a00",
-          value: "42",
-          category: [
-            {
-              label: "Sun Glasses",
-              color: "#e44a00",
-              value: "10.08",
-            },
-            {
-              label: "Clothing",
-              color: "#e44a00",
-              value: "18.9",
-            },
-            {
-              label: "Handbags",
-              color: "#e44a00",
-              value: "6.3",
-            },
-            {
-              label: "Shoes",
-              color: "#e44a00",
-              value: "6.72",
-            },
-          ],
-        },
-        {
-          label: "Baby {br}Products",
-          color: "#008ee4",
-          value: "22.5",
-          category: [
-            {
-              label: "Bath &{br}Grooming",
-              color: "#008ee4",
-              value: "9.45",
-            },
-            {
-              label: "Feeding",
-              color: "#008ee4",
-              value: "6.3",
-            },
-            {
-              label: "Diapers",
-              color: "#008ee4",
-              value: "6.75",
-            },
-          ],
-        },
-        {
-          label: "Electronics",
-          color: "#33bdda",
-          value: "30",
-          category: [
-            {
-              label: "Laptops",
-              color: "#33bdda",
-              value: "8.1",
-            },
-            {
-              label: "Televisions",
-              color: "#33bdda",
-              value: "10.5",
-            },
-            {
-              label: "SmartPhones",
-              color: "#33bdda",
-              value: "11.4",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
 
 function MultiLevelPieChart() {
   const pieChartConfig = {
@@ -150,35 +42,19 @@ function MultiLevelPieChart() {
         plotTooltext: "$label, $$valueK, $percentValue",
       },
 
-      annotations: {
-        groups: [
-          {
-            // items: [
-            //   {
-            //     id: "line1",
-            //     type: "line",
-            //     x: "$chartCenterX + 205",
-            //     y: "$chartCenterY - 50",
-            //     toX: "$chartCenterX + 240",
-            //     toY: "$chartCenterY - 80",
-            //   },
-            //   {
-            //     id: "linelabel1",
-            //     type: "text",
-            //     x: "$chartCenterX + 245",
-            //     y: "$chartCenterY - 88",
-            //     text: "22.76%",
-            //     fontSize: "11",
-            //   },
-            // ],
-          },
-        ],
-      },
-
-      category: multiData.data,
+      category: salesData.data,
     },
   };
-  return <ReactFC {...pieChartConfig} />;
+  return (
+    <>
+      <AdminLayout pageTitle="Dashboard">
+        <div className="row center">
+          <ReactFC {...pieChartConfig} />
+        </div>
+        <MultiLevelPieTable />
+      </AdminLayout>
+    </>
+  );
 }
 
 export default MultiLevelPieChart;
