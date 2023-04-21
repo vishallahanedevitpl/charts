@@ -3,6 +3,7 @@ import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
 import multilevelpie from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+// import pieChartData from '../'
 ReactFC.fcRoot(FusionCharts, multilevelpie, FusionTheme);
 
 const multiData = {
