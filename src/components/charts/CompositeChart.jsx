@@ -4,7 +4,7 @@ import FusionCharts from "fusioncharts";
 import Charts from "fusioncharts/fusioncharts.charts";
 import ReactFC from "react-fusioncharts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-
+import { salesData } from "../../api/salesData";
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
 const chartConfigs = {
@@ -14,74 +14,47 @@ const chartConfigs = {
   dataFormat: "json",
   dataSource: {
     chart: {
-      caption: "Expense Analysis",
+      caption: "Sales Analysis",
       subcaption: "ACME Inc.",
-      xaxisname: "Region",
+      xaxisname: "Product",
       yaxisname: "Amount (In USD)",
       numberprefix: "$",
       theme: "fusion",
       showxaxisline: "0",
       showyaxisline: "0",
+      plotTooltext: "$label, $$valueK",
     },
     categories: [
       {
-        category: [
-          {
-            label: "East",
-          },
-          {
-            label: "West",
-          },
-          {
-            label: "South",
-          },
-          {
-            label: "North",
-          },
-        ],
+        category: salesData.map((s) => {
+          return { label: s.product };
+        }),
       },
     ],
     dataset: [
       {
-        seriesname: "Actual Expenses",
-        data: [
-          {
-            value: "1441290",
-          },
-          {
-            value: "855912",
-          },
-          {
-            value: "911404",
-          },
-          {
-            value: "648136",
-          },
-        ],
+        seriesname: "Actual Sales",
+        data: salesData.map((s) => {
+          return { value: s.sales };
+        }),
       },
       {
-        seriesname: "Budgeted Expenses",
+        seriesname: "Expected Sales",
         renderas: "line",
-        data: [
-          {
-            value: "1297430",
-          },
-          {
-            value: "776485",
-          },
-          {
-            value: "685352",
-          },
-          {
-            value: "726791",
-          },
-        ],
+        data: salesData.map((s) => {
+          return { value: s.expectedSales };
+        }),
       },
     ],
   },
 };
 
 const CompositeChart = () => {
+  // console.log(
+  //   salesData.map((s) => {
+  //     return { label: s.product };
+  //   })
+  // );
   return <ReactFC {...chartConfigs} />;
 };
 
