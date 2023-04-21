@@ -6,7 +6,6 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import AdminLayout from "../layout/admin";
 import CompositeChart from "../components/charts/CompositeChart";
 import MultiLevelPieChart from "../components/charts/MultiLevelPieChart";
-import MultiLevelPieTable from "../components/tableData/MultiLevelPieTable";
 
 ReactFC.fcRoot(FusionCharts, MultiLevelPie, FusionTheme);
 const DashboardPage = () => {
@@ -18,8 +17,7 @@ const DashboardPage = () => {
             <CompositeChart />
             <div className="row center">
               {/* charts will go here */}
-              <MultiLevelPieChart />
-              <MultiLevelPieTable />
+              {/* <MultiLevelPieChart /> */}
             </div>
           </div>
         </div>

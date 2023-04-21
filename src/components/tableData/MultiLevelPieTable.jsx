@@ -2,8 +2,9 @@ import React from "react";
 import { salesData } from "../../api/salesData";
 
 function MultiLevelPieTable() {
+  let indexing = 0;
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,16 +15,20 @@ function MultiLevelPieTable() {
         </tr>
       </thead>
       <tbody>
-        {salesData &&
-          salesData.map((data, index) => (
-            <tr>
-              <th scope="row">{index + 1}</th>
-              <td>{data.product}</td>
-              <td>{data.category}</td>
-              <td>{data.sales}</td>
-              <td>${data.expectedSales}k</td>
-            </tr>
-          ))}
+        {salesData.data[0].category.map((valdata, i) => {
+          return valdata.category.map((catData, catIndex) => {
+            indexing++;
+            return (
+              <tr key={indexing}>
+                <th scope="row">{indexing}</th>
+                <td>{catData.label}</td>
+                <td>{valdata.label.replace(/\{br}/g, " ")}</td>
+                <td>${catData.value}k</td>
+                <td>${catData.expectedSales}k</td>
+              </tr>
+            );
+          });
+        })}
       </tbody>
     </table>
   );
