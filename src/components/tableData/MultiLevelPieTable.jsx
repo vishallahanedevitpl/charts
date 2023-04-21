@@ -10,6 +10,7 @@ function MultiLevelPieTable() {
           <th scope="col">Product</th>
           <th scope="col">Category</th>
           <th scope="col">Sales</th>
+          <th scope="col">Expected Sales</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@ function MultiLevelPieTable() {
               <td>{data.product}</td>
               <td>{data.category}</td>
               <td>{data.sales}</td>
+              <td>${data.expectedSales}k</td>
             </tr>
           ))}
       </tbody>
