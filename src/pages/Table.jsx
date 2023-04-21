@@ -4,21 +4,16 @@ import FusionCharts from "fusioncharts";
 import MultiLevelPie from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import AdminLayout from "../layout/admin";
-import CompositeChart from "../components/charts/CompositeChart";
-import MultiLevelPieChart from "../components/charts/MultiLevelPieChart";
+import SalesDataTable from "../components/tableData/SalesData";
 
 ReactFC.fcRoot(FusionCharts, MultiLevelPie, FusionTheme);
-const DashboardPage = () => {
+const TablePage = () => {
   return (
-    <AdminLayout pageTitle="Dashboard">
+    <AdminLayout pageTitle="Sales Data">
       <section className="section dashboard">
         <div className="card">
           <div className="card-body pt-3">
-            <CompositeChart />
-            <div className="row center">
-              {/* charts will go here */}
-              {/* <MultiLevelPieChart /> */}
-            </div>
+            <SalesDataTable />
           </div>
         </div>
       </section>
@@ -26,4 +21,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default TablePage;

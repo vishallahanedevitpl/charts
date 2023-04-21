@@ -3,12 +3,10 @@ import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
 import multilevelpie from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-import AdminLayout from "../../layout/admin";
-import MultiLevelPieTable from "../tableData/MultiLevelPieTable";
 import { salesData } from "../../api/salesData";
 ReactFC.fcRoot(FusionCharts, multilevelpie, FusionTheme);
 
-function MultiLevelPieChart() {
+const MultiLevelPieChart = () => {
   const pieChartConfig = {
     type: "multilevelpie",
     renderAt: "chart-container",
@@ -47,14 +45,9 @@ function MultiLevelPieChart() {
   };
   return (
     <>
-      <AdminLayout pageTitle="Dashboard">
-        <div className="row center">
-          <ReactFC {...pieChartConfig} />
-        </div>
-        <MultiLevelPieTable />
-      </AdminLayout>
+      <ReactFC {...pieChartConfig} />
     </>
   );
-}
+};
 
 export default MultiLevelPieChart;

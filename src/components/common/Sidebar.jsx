@@ -12,9 +12,9 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link collapsed" to="/pie-chart">
+            <Link className="nav-link collapsed" to="/table">
               <i className="bi bi-box-seam"></i>
-              <span>Pie Charts</span>
+              <span>Table</span>
             </Link>
           </li>
         </ul>

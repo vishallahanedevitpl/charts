@@ -1,10 +1,10 @@
 import React from "react";
 import { salesData } from "../../api/salesData";
 
-function MultiLevelPieTable() {
+const SalesDataTable = () => {
   let indexing = 0;
   return (
-    <table className="table">
+    <table className="table table-striped table-hover table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -32,6 +32,6 @@ function MultiLevelPieTable() {
       </tbody>
     </table>
   );
-}
+};
 
-export default MultiLevelPieTable;
+export default SalesDataTable;
