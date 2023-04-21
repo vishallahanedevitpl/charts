@@ -5,7 +5,7 @@ import MultiLevelPie from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import AdminLayout from "../layout/admin";
 import CompositeChart from "../components/charts/CompositeChart";
-import MultiLevelPieChart from "./charts/MultiLevelPieChart";
+import MultiLevelPieChart from "../components/charts/MultiLevelPieChart";
 
 ReactFC.fcRoot(FusionCharts, MultiLevelPie, FusionTheme);
 const DashboardPage = () => {
