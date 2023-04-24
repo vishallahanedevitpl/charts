@@ -12,9 +12,7 @@ const Header = () => {
             <img src="assets/img/logo.png" alt="" />
             <span className="d-none d-lg-block">Charts</span>
           </a>
-          {/* <i className="bi bi-list toggle-sidebar-btn" /> */}
         </div>
-        {/* End Logo */}
       </header>
     </>
   );

@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import FusionCharts from "fusioncharts";
 import Charts from "fusioncharts/fusioncharts.charts";
 import ReactFC from "react-fusioncharts";
@@ -23,7 +22,6 @@ const CompositeChart = () => {
     dataSource: {
       chart: {
         caption: "Sales Analysis",
-        // subcaption: "ACME Inc.",
         xaxisname: "Product",
         yaxisname: "Amount (In USD thousand)",
         numberprefix: "$",

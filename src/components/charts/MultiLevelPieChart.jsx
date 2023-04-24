@@ -17,7 +17,6 @@ const MultiLevelPieChart = () => {
     dataSource: {
       chart: {
         caption: "Category Wise Top Products Sold",
-        // subCaption: "Last Quarter",
         captionFontSize: "14",
         subcaptionFontSize: "14",
         baseFontColor: "#333333",

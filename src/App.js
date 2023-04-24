@@ -9,7 +9,6 @@ function App() {
     <Routes>
       <Route path="/" element={<ChartPage />} />
       <Route path="/sales" element={<TablePage />} />
-      {/* //list */}
     </Routes>
   );
 }
