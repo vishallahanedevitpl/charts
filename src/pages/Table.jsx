@@ -9,7 +9,7 @@ import SalesDataTable from "../components/tableData/SalesData";
 ReactFC.fcRoot(FusionCharts, MultiLevelPie, FusionTheme);
 const TablePage = () => {
   return (
-    <AdminLayout pageTitle="Sales Data">
+    <AdminLayout pageTitle="Sales List">
       <section className="section dashboard">
         <div className="card">
           <div className="card-body pt-3">

@@ -13,7 +13,7 @@ const ChartPage = () => {
     <AdminLayout pageTitle="Sales Charts">
       <section className="section dashboard">
         <div className="card">
-          <div className="card-body pt-3">
+          <div className="card-body pt-3 row center">
             <MultiLevelPieChart />
           </div>
         </div>

@@ -23,7 +23,7 @@ const CompositeChart = () => {
     dataSource: {
       chart: {
         caption: "Sales Analysis",
-        subcaption: "ACME Inc.",
+        // subcaption: "ACME Inc.",
         xaxisname: "Product",
         yaxisname: "Amount (In USD thousand)",
         numberprefix: "$",

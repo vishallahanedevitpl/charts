@@ -8,7 +8,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<ChartPage />} />
-      <Route path="/table" element={<TablePage />} />
+      <Route path="/sales" element={<TablePage />} />
+      {/* //list */}
     </Routes>
   );
 }
